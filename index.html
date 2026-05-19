@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newark Body Shop — Auto Body &amp; Collision Repair Since 1955</title>
+<meta name="description" content="Family-owned auto body and collision repair in Newark, IL since 1955. Free estimates, all insurance accepted. Call (815) 695-5744.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2EEE7;
+  --surface:#FFFFFF;
+  --surface-2:#E2DDD3;
+  --primary:#161616;
+  --primary-soft:#2A2A2A;
+  --text:#1A1A1A;
+  --muted:#5E5853;
+  --border:rgba(22,22,22,0.13);
+  --accent:#B82431;
+  --accent-hover:#921C27;
+  --chrome:#9B9994;
+  --gold-rust:#C58632;
+  --overlay:rgba(22,22,22,0.62);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Space Grotesk',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  font-size:1.04rem;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+.container{max-width:1280px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3,h4{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:0.005em;color:var(--primary);line-height:1.05;text-transform:uppercase}
+h1{font-size:clamp(3.2rem,6.4vw,6.4rem);letter-spacing:-0.005em}
+h2{font-size:clamp(2.4rem,4.4vw,4.2rem)}
+h3{font-size:clamp(1.4rem,2.2vw,1.8rem)}
+p{color:var(--muted);line-height:1.7}
+a{color:inherit;text-decoration:none}
+
+/* Header */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1rem 0;
+  transition:all 0.3s ease;
+  background:rgba(242,238,231,0.55);
+  backdrop-filter:blur(6px);
+}
+header.scrolled{
+  background:rgba(22,22,22,0.95);
+  backdrop-filter:blur(14px);
+  padding:.7rem 0;
+  border-bottom:2px solid var(--accent);
+  box-shadow:0 4px 24px rgba(0,0,0,0.18);
+}
+header.scrolled .logo,header.scrolled .nav-links a{color:var(--surface)}
+header.scrolled .socials-row a{background:rgba(255,255,255,0.1)}
+header.scrolled .socials-row svg{stroke:var(--surface)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
+.logo{font-family:'Anton',sans-serif;font-weight:400;font-size:1.4rem;color:var(--primary);letter-spacing:0.01em;text-transform:uppercase;display:flex;align-items:center;gap:.7rem;transition:color .3s}
+.logo-mark{width:38px;height:38px;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;color:var(--surface);font-family:'Anton',sans-serif;font-size:1.1rem;clip-path:polygon(0 0,100% 0,100% 75%,85% 100%,0 100%)}
+.logo .est{font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:var(--accent);letter-spacing:.18em;font-weight:600;text-transform:uppercase;display:block;margin-top:-.15rem}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-family:'Space Grotesk',sans-serif;font-size:.86rem;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:.08em;position:relative;padding:.25rem 0;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--accent);transition:width .3s ease}
+.nav-links a:hover::after{width:100%}
+.socials-row{display:flex;gap:.45rem;align-items:center}
+.socials-row a{width:36px;height:36px;background:var(--surface-2);display:inline-flex;align-items:center;justify-content:center;transition:all .25s ease;clip-path:polygon(0 0,100% 0,100% 75%,80% 100%,0 100%)}
+.socials-row a:hover{background:var(--accent)}
+.socials-row a:hover svg{stroke:var(--surface)}
+.socials-row svg{width:15px;height:15px;stroke:var(--primary);fill:none;stroke-width:2}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--accent);color:var(--surface);
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.92rem;
+  padding:.95rem 1.7rem;border:none;cursor:pointer;
+  text-transform:uppercase;letter-spacing:.1em;
+  transition:all .25s ease;
+  clip-path:polygon(0 0,100% 0,100% 75%,92% 100%,0 100%);
+  box-shadow:0 6px 16px rgba(184,36,49,0.32);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
+@keyframes pulse{
+  0%,100%{box-shadow:0 6px 16px rgba(184,36,49,0.32)}
+  70%{box-shadow:0 6px 16px rgba(184,36,49,0.32),0 0 0 0 transparent}
+}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:.45rem;
+  background:transparent;color:var(--primary);
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.92rem;
+  padding:.9rem 1.5rem;border:2px solid var(--primary);
+  text-transform:uppercase;letter-spacing:.1em;
+  transition:all .25s ease;cursor:pointer;
+}
+.btn-outline:hover{background:var(--primary);color:var(--surface)}
+.hamburger{display:none;background:none;border:none;color:var(--primary);font-size:1.4rem;cursor:pointer}
+
+/* Hero */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(135deg,#161616 0%,#0D0D0D 100%);
+  color:var(--surface);
+  display:flex;align-items:center;
+  padding:9rem 0 5rem;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(45deg,rgba(255,255,255,0.015) 0,rgba(255,255,255,0.015) 1px,transparent 1px,transparent 22px),
+    radial-gradient(circle at 70% 30%,rgba(184,36,49,0.15) 0%,transparent 50%),
+    url('https://images.unsplash.com/photo-1632823471565-1ecdf5c6da77?w=1800&q=80') center/cover;
+  filter:contrast(1.05) brightness(0.45);
+  z-index:0;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(13,13,13,0.95) 0%,rgba(13,13,13,0.55) 100%);
+  z-index:0;
+}
+.hero-content{position:relative;z-index:1;max-width:780px}
+.hero-strip{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.2em;color:var(--accent);
+  margin-bottom:1.8rem;
+  opacity:0;transform:translateY(16px);animation:fadeUp .7s ease forwards;animation-delay:.1s;
+}
+.hero-strip::before{content:'';width:60px;height:2px;background:var(--accent)}
+.hero h1{color:var(--surface);margin-bottom:1.5rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s ease forwards;animation-delay:.25s}
+.hero h1 .accent-word{color:var(--accent);font-style:italic}
+.hero-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.75);margin-bottom:2.4rem;max-width:580px;line-height:1.6;opacity:0;transform:translateY(20px);animation:fadeUp .8s ease forwards;animation-delay:.4s}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s ease forwards;animation-delay:.55s}
+.btn-hero{padding:1.2rem 2.2rem;font-size:.98rem}
+.btn-outline.btn-hero{border-color:var(--surface);color:var(--surface)}
+.btn-outline.btn-hero:hover{background:var(--surface);color:var(--primary)}
+.hero-stats{display:flex;gap:3rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s ease forwards;animation-delay:.7s;flex-wrap:wrap}
+.hero-stat{}
+.hero-stat .num{font-family:'Anton',sans-serif;font-size:2.8rem;color:var(--surface);display:block;line-height:1;letter-spacing:0}
+.hero-stat .lbl{font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:600;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:.14em;margin-top:.45rem;display:block}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* Stripe band */
+.stripe-band{
+  background:var(--accent);color:var(--surface);padding:1.2rem 0;
+  overflow:hidden;position:relative;
+}
+.stripe-band-track{display:flex;gap:3rem;font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;animation:scroll 24s linear infinite}
+.stripe-band-track span{display:inline-flex;align-items:center;gap:1.5rem}
+.stripe-band-track span::after{content:'\002B';color:rgba(255,255,255,0.6);font-size:1.2rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding:clamp(4.5rem,8vw,7rem) 0;position:relative}
+.section-eyebrow{
+  display:inline-block;
+  font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.2em;margin-bottom:1rem;
+  position:relative;padding-left:50px;
+}
+.section-eyebrow::before{content:'';position:absolute;left:0;top:50%;width:40px;height:2px;background:var(--accent)}
+.section-head{margin-bottom:3.8rem;max-width:740px}
+.section-head p{margin-top:1.2rem;font-size:1.08rem}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-img{position:relative}
+.about-img img{aspect-ratio:5/6;object-fit:cover;width:100%;filter:contrast(1.1) saturate(0.85) brightness(0.92)}
+.about-img-tag{position:absolute;bottom:0;left:0;background:var(--primary);color:var(--surface);padding:1.5rem 2rem;border-bottom:3px solid var(--accent)}
+.about-img-tag .num{font-family:'Anton',sans-serif;font-size:2.8rem;color:var(--surface);line-height:1;display:block}
+.about-img-tag .lbl{font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-top:.35rem}
+.about-text h2{margin-bottom:1.5rem}
+.about-text p{margin-bottom:1.1rem;color:var(--primary-soft);font-size:1.06rem;line-height:1.75}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.about-feature{display:flex;gap:.85rem;align-items:flex-start;padding:1rem;background:var(--surface);border-left:3px solid var(--accent)}
+.about-feature-num{font-family:'Anton',sans-serif;font-size:1.6rem;color:var(--accent);line-height:1;flex-shrink:0}
+.about-feature-text{font-size:.92rem;color:var(--primary-soft);line-height:1.45}
+.about-feature-text strong{display:block;color:var(--primary);font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.03em;text-transform:uppercase;font-size:1rem;margin-bottom:.15rem}
+
+/* Services */
+.services{background:var(--primary);color:var(--surface);position:relative;overflow:hidden}
+.services::before{
+  content:'';position:absolute;top:0;right:0;bottom:0;width:30%;
+  background:linear-gradient(135deg,transparent 0%,rgba(184,36,49,0.08) 100%);
+}
+.services h2{color:var(--surface)}
+.services .section-head p{color:rgba(255,255,255,0.65)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;position:relative;z-index:1}
+.service-card{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);
+  padding:2.2rem 1.8rem;position:relative;
+  transition:all .35s cubic-bezier(0.16,1,0.3,1);
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;width:0;height:3px;background:var(--accent);
+  transition:width .4s ease;
+}
+.service-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-4px)}
+.service-card:hover::before{width:100%}
+.service-num{font-family:'Anton',sans-serif;font-size:3.2rem;color:var(--accent);line-height:1;margin-bottom:1rem;letter-spacing:0}
+.service-card h3{color:var(--surface);margin-bottom:.7rem;font-size:1.4rem}
+.service-card p{color:rgba(255,255,255,0.65);font-size:.95rem;line-height:1.6}
+
+/* Process strip */
+.process{background:var(--surface-2)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;position:relative}
+.process-step{
+  background:var(--surface);padding:2.2rem 1.6rem;position:relative;
+  border-bottom:3px solid transparent;transition:border-color .3s;
+}
+.process-step:hover{border-bottom-color:var(--accent)}
+.process-step-num{font-family:'Anton',sans-serif;font-size:1.05rem;color:var(--accent);letter-spacing:.15em;margin-bottom:.6rem;display:block}
+.process-step h3{font-size:1.25rem;margin-bottom:.6rem}
+.process-step p{font-size:.93rem;line-height:1.6;color:var(--muted)}
+
+/* Reviews */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.review-card{
+  background:var(--surface);padding:2.4rem 2rem;
+  border-left:4px solid var(--accent);position:relative;
+  transition:all .35s ease;
+  box-shadow:0 1px 3px rgba(22,22,22,0.06);
+}
+.review-card:hover{transform:translateY(-5px);box-shadow:0 1px 3px rgba(22,22,22,0.06),0 18px 40px rgba(22,22,22,0.1)}
+.review-stars{color:var(--gold-rust);font-size:1.1rem;margin-bottom:1.1rem;letter-spacing:.12em}
+.review-card p{color:var(--primary-soft);font-size:1.02rem;line-height:1.7;margin-bottom:1.5rem;font-family:'Space Grotesk',sans-serif}
+.review-name{font-family:'Anton',sans-serif;color:var(--primary);font-size:1.1rem;letter-spacing:.03em}
+.review-date{font-size:.82rem;color:var(--muted);margin-top:.15rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+
+/* Map */
+.visit{padding-bottom:0}
+.visit-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:0;border:1px solid var(--border);overflow:hidden}
+.visit-info{background:var(--primary);color:var(--surface);padding:3.5rem 2.8rem}
+.visit-info h2{color:var(--surface);margin-bottom:1.6rem}
+.visit-info .section-eyebrow::before{background:var(--accent)}
+.info-row{display:flex;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+.info-row:last-child{border-bottom:none}
+.info-icon{flex-shrink:0;width:46px;height:46px;background:rgba(184,36,49,0.18);border:1px solid rgba(184,36,49,0.4);color:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:1.2rem}
+.info-text strong{display:block;font-size:.78rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-bottom:.3rem}
+.info-text span,.info-text a{color:var(--surface);font-size:1.04rem;font-weight:500}
+.info-text a:hover{color:var(--accent)}
+.map-frame{position:relative;min-height:520px}
+.map-frame iframe{width:100%;height:100%;border:none;display:block}
+
+/* Final CTA */
+.final-cta{background:var(--accent);color:var(--surface);text-align:center;padding:6rem 0;position:relative;overflow:hidden}
+.final-cta::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent 0,transparent 30px,rgba(255,255,255,0.04) 30px,rgba(255,255,255,0.04) 60px);
+}
+.final-cta-inner{position:relative;z-index:1;max-width:720px;margin:0 auto}
+.final-cta h2{color:var(--surface);margin-bottom:1.1rem;font-size:clamp(2.4rem,4.4vw,4rem)}
+.final-cta p{color:rgba(255,255,255,0.88);font-size:1.18rem;margin-bottom:2.2rem}
+.final-cta .btn-primary{background:var(--primary);color:var(--surface);box-shadow:0 8px 24px rgba(0,0,0,0.32);animation:none;padding:1.2rem 2.5rem}
+.final-cta .btn-primary:hover{background:#000}
+
+/* Footer */
+footer{background:#0A0A0A;color:rgba(255,255,255,0.65);padding:4.5rem 0 1.5rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-col h4{font-family:'Anton',sans-serif;color:var(--surface);font-weight:400;font-size:1.15rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.2rem;border-bottom:2px solid var(--accent);padding-bottom:.5rem;display:inline-block}
+.footer-col p,.footer-col li{font-size:.93rem;line-height:1.85;color:rgba(255,255,255,0.6)}
+.footer-col li{list-style:none}
+.footer-col a:hover{color:var(--accent)}
+.footer-brand .logo{color:var(--surface);margin-bottom:1rem}
+.footer-brand p{max-width:280px;margin-bottom:1.4rem}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-size:.82rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:.08em}
+.footer-bottom a{color:rgba(255,255,255,0.7)}
+.footer-bottom a:hover{color:var(--accent)}
+.footer-socials{display:flex;gap:.5rem;margin-top:.8rem}
+.footer-socials a{width:38px;height:38px;background:rgba(255,255,255,0.07);display:inline-flex;align-items:center;justify-content:center;transition:all .25s;clip-path:polygon(0 0,100% 0,100% 75%,80% 100%,0 100%)}
+.footer-socials a:hover{background:var(--accent)}
+.footer-socials svg{width:15px;height:15px;stroke:rgba(255,255,255,0.75);fill:none;stroke-width:2}
+
+/* Sticky mobile CTA */
+.sticky-cta{
+  display:none;position:fixed;bottom:1rem;left:1rem;right:1rem;z-index:99;
+  background:var(--accent);color:var(--surface);
+  padding:1rem 1.4rem;
+  align-items:center;justify-content:space-between;gap:1rem;
+  box-shadow:0 12px 32px rgba(184,36,49,0.45);
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;
+  text-transform:uppercase;letter-spacing:.1em;
+  clip-path:polygon(0 0,100% 0,100% 85%,96% 100%,0 100%);
+}
+.sticky-cta::after{content:'\2192';margin-left:auto;font-size:1.1rem}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:all .8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+
+/* Responsive */
+@media(max-width:920px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-features{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr}
+  .visit-info{padding:2.5rem 1.6rem}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .sticky-cta{display:flex}
+  .hero{padding:7rem 0 3.5rem;min-height:auto}
+  .hero-stats{gap:2rem}
+  .hero-stat .num{font-size:2.2rem}
+}
+@media(max-width:540px){
+  .footer-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="logo">
+        <span class="logo-mark">NBS</span>
+        <span>Newark Body Shop<span class="est">Est. 1955</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#visit">Visit</a>
+        <div class="socials-row">
+          <a href="https://www.bbb.org/us/il/newark/profile/auto-body-repair-and-painting/newark-body-shop-0654-88411125" target="_blank" rel="noopener" aria-label="BBB Profile">
+            <svg viewBox="0 0 24 24"><path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6z"/></svg>
+          </a>
+        </div>
+        <a href="tel:8156955744" class="btn-primary">Call for Estimate</a>
+      </div>
+      <button class="hamburger" aria-label="Menu">&#9776;</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-strip">70 years on Johnson Street</div>
+      <h1>Bent metal, <span class="accent-word">straightened.</span> Insurance, handled.</h1>
+      <p class="hero-subtitle">Newark Body Shop has been pulling dents, matching paint, and squaring frames in Kendall County since 1955. Free estimates, every insurance company, no runaround.</p>
+      <div class="hero-ctas">
+        <a href="tel:8156955744" class="btn-primary btn-hero">Call for Free Estimate</a>
+        <a href="#services" class="btn-outline btn-hero">See Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">70+</span><span class="lbl">Years on Site</span></div>
+        <div class="hero-stat"><span class="num">100%</span><span class="lbl">Insurance Accepted</span></div>
+        <div class="hero-stat"><span class="num">$0</span><span class="lbl">Estimate Cost</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stripe band -->
+<div class="stripe-band">
+  <div class="stripe-band-track">
+    <span>Collision Repair</span><span>Frame Straightening</span><span>Paint Matching</span><span>Insurance Claims</span><span>Free Estimates</span><span>Since 1955</span>
+    <span>Collision Repair</span><span>Frame Straightening</span><span>Paint Matching</span><span>Insurance Claims</span><span>Free Estimates</span><span>Since 1955</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <!-- REPLACE WITH REAL PHOTO of the shop, a finished restoration, or the team -->
+        <img src="https://images.unsplash.com/photo-1632823471565-1ecdf5c6da77?w=900&q=80" alt="Auto body shop interior">
+        <div class="about-img-tag"><span class="num">1955</span><span class="lbl">Founded in Newark</span></div>
+      </div>
+      <div class="about-text reveal">
+        <span class="section-eyebrow">About Us</span>
+        <h2>Three generations. Same shop.</h2>
+        <p>Newark Body Shop opened on Johnson Street in 1955 and never left. Three generations of the same family have run the place &mdash; cars came in with chrome bumpers, then with composite plastics, then with cameras and sensors in every panel. The metalwork didn't change. We just kept up.</p>
+        <p>Whether you got rear-ended on Route 71, slid into a deer in Big Grove, or your hail-pitted roof needs PDR, we'll work directly with your insurance company and get you back on the road without the back-and-forth.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-num">01</div>
+            <div class="about-feature-text"><strong>Free Estimate</strong>No charge to take a look and write it up</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-num">02</div>
+            <div class="about-feature-text"><strong>Direct Billing</strong>We handle your insurance company so you don't</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-num">03</div>
+            <div class="about-feature-text"><strong>Color Match</strong>Computer-matched paint, blended panels</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-num">04</div>
+            <div class="about-feature-text"><strong>Lifetime Warranty</strong>On workmanship, as long as you own the car</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">What We Do</span>
+      <h2>Services.</h2>
+      <p>Body, frame, paint, plastic. Anything that bends, breaks, scratches, or rusts &mdash; we fix it.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <h3>Collision Repair</h3>
+        <p>Fender-benders to total reconstructions. We pull panels, replace what can't be saved, and blend paint so the repair line disappears.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <h3>Frame Straightening</h3>
+        <p>Hard hits bend more than sheet metal. We measure, pull, and re-align the frame so the car drives straight again.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <h3>Paint &amp; Refinish</h3>
+        <p>Computer-matched paint, panel-blended for an invisible repair. Clear coat, baked finish, dust-controlled booth.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <h3>Hail &amp; Dent Repair</h3>
+        <p>Paintless dent removal where the paint's intact. Saves the original finish and a lot of money on the insurance claim.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
+        <h3>Glass Replacement</h3>
+        <p>Windshields and side glass replaced and calibrated &mdash; modern cars need camera recalibration after a windshield, and we handle it.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">06</div>
+        <h3>Rust Repair</h3>
+        <p>Cut out the rust, weld in fresh metal, prime and seal. Done right, it won't come back through the paint two winters later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">How It Works</span>
+      <h2>From dent to drive-off.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <span class="process-step-num">STEP 01</span>
+        <h3>Estimate</h3>
+        <p>Bring the car in, we write a free estimate. Photos and itemized parts list go straight to your insurance.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-step-num">STEP 02</span>
+        <h3>Approval</h3>
+        <p>We coordinate with the adjuster, finalize the scope, and order parts. You get a delivery date in writing.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-step-num">STEP 03</span>
+        <h3>Repair</h3>
+        <p>Panel work, frame pulls, paint and refinish in our booth. Status updates by phone or text every few days.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-step-num">STEP 04</span>
+        <h3>Drive Off</h3>
+        <p>Final inspection, wash, and your car comes home. Lifetime warranty on workmanship comes with every job.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">What Folks Say</span>
+      <h2>Word travels.</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Slid into a curb in January, bent the wheel and the fender. They had it back to me in nine days, looked better than the day I bought it.</p>
+        <div class="review-name">Steve K.</div>
+        <div class="review-date">Newark, IL</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Dealt with the insurance company for me start to finish. I dropped the car off, picked it up two weeks later, paid the deductible. That's it.</p>
+        <div class="review-name">Maria L.</div>
+        <div class="review-date">Plano, IL</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p>Real people, real shop. Showed me what they were doing, told me what was honest to fix and what wasn't worth it. Will be back.</p>
+        <div class="review-name">Dan R.</div>
+        <div class="review-date">Sandwich, IL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="container">
+    <div class="visit-grid reveal">
+      <div class="visit-info">
+        <span class="section-eyebrow">Stop In</span>
+        <h2>204 N Johnson St.</h2>
+        <div class="info-row">
+          <div class="info-icon">A</div>
+          <div class="info-text"><strong>Address</strong><span>204 N Johnson St<br>Newark, IL 60541</span></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">P</div>
+          <div class="info-text"><strong>Phone</strong><a href="tel:8156955744">(815) 695-5744</a></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">H</div>
+          <div class="info-text"><strong>Hours</strong><span>Mon&ndash;Fri 8am&ndash;5pm<br>Sat by appointment</span></div>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=204+N+Johnson+St+Newark+IL+60541&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Newark Body Shop"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <h2>Got hit? Call us first.</h2>
+      <p>Free estimate, direct insurance billing, and your car back on the road. That's the job.</p>
+      <a href="tel:8156955744" class="btn-primary">Call (815) 695-5744</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="#" class="logo"><span class="logo-mark">NBS</span><span>Newark Body Shop</span></a>
+        <p>Three generations of body and collision repair on Johnson Street since 1955.</p>
+        <div class="footer-socials">
+          <a href="https://www.bbb.org/us/il/newark/profile/auto-body-repair-and-painting/newark-body-shop-0654-88411125" target="_blank" rel="noopener" aria-label="BBB Profile"><svg viewBox="0 0 24 24"><path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul>
+          <li>Mon&ndash;Fri 8am&ndash;5pm</li>
+          <li>Sat by appointment</li>
+          <li>Sun &mdash; Closed</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:8156955744">(815) 695-5744</a></li>
+          <li>204 N Johnson St</li>
+          <li>Newark, IL 60541</li>
+        </ul>
+        <a href="tel:8156955744" class="btn-primary" style="margin-top:1rem;font-size:.82rem;padding:.7rem 1.2rem;animation:none">Call Now</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Newark Body Shop. Family-owned since 1955.</span>
+      <span>Site by <a href="https://johnathon-builds.vercel.app" target="_blank" rel="noopener">Johnathon Builds</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:8156955744" class="sticky-cta">Call (815) 695-5744</a>
+
+<script>
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>80)});
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
