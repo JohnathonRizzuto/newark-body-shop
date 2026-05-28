@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://newark-body-shop.vercel.app/sitemap.xml
